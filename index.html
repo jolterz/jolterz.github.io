@@ -47,4 +47,182 @@
       margin-bottom: 0.5rem;
     }
 
-    heade
+    header p {
+      font-size: 1rem;
+      color: #000;
+    }
+
+    nav {
+      background: #111;
+      padding: 0.7rem 0;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #4aa3ff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.3rem;
+      color: #4aa3ff;
+      margin-bottom: 1rem;
+      border-left: 6px solid #ffcc00;
+      padding-left: 0.5rem;
+    }
+
+    .card {
+      background: #111;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+      margin-bottom: 2rem;
+    }
+
+    /* Portfolio Grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .portfolio-item {
+      background: #111;
+      border: 2px solid #4aa3ff;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      padding: 0.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+    }
+
+    .portfolio-item img,
+    .portfolio-item video {
+      width: 100%;
+      border-bottom: 2px solid #ffcc00;
+      display: block;
+    }
+
+    footer {
+      background: #111;
+      border-top: 2px solid #4aa3ff;
+      text-align: center;
+      padding: 1rem;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: #0044cc;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      margin: 0.3rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #ffcc00;
+      color: #000;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.7rem; }
+      h2 { font-size: 1.1rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Hi, I am Jessieco Crema aka Jolterz!</h1>
+    <p>Welcome to my Samurai-themed Retro Portfolio ⚔️🎮</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#twitter">Twitter</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container">
+    <!-- About Me -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card">
+        <p>A Web 3 content creator • Gaming guild founder of <strong>Gaijin Guild Games</strong> • Community Manager • TCG Player • Foreign Student currently living in Japan • Web 3 Marketing Consultant • Game Tester • Collaboration Manager</p>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/400x250?text=Project+1" alt="Project 1">
+        </div>
+        <div class="portfolio-item">
+          <video controls>
+            <source src="sample.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/400x250?text=Event+Collab" alt="Event">
+        </div>
+      </div>
+    </section>
+
+    <!-- Twitter Feed -->
+    <section id="twitter">
+      <h2>Latest Tweets</h2>
+      <div class="card">
+        <a class="twitter-timeline" data-theme="dark" data-height="500" href="https://twitter.com/jolterz?ref_src=twsrc%5Etfw">Tweets by Jolterz</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>📱 <strong>Twitter:</strong> <a href="https://x.com/jolterz" target="_blank">@jolterz</a></p>
+        <p>🎮 <strong>Discord:</strong> jolterz</p>
+        <p>👥 <strong>Join my Community:</strong> <a href="https://discord.gg/TmcBtAWAnp" target="_blank">Gaijin Guild Games</a></p>
+        <p>📞 Strictly calls can only be done via <strong>Google Meet</strong> or <strong>Discord</strong>.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Jessieco Crema (Jolterz) | Built with 💙⚡ Samurai x Retro Gaming Style</p>
+  </footer>
+</body>
+</html>
