@@ -12,7 +12,6 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* Thunderstorm Background with Lightning Effect */
     body {
       font-family: 'Roboto', sans-serif;
       background: #000 url('https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
@@ -41,7 +40,6 @@
       21% { opacity: 0; }
     }
 
-    /* Retro Gaming Header */
     header {
       background: rgba(0, 0, 0, 0.7);
       padding: 3rem 2rem;
@@ -56,13 +54,11 @@
     }
 
     .header-gif {
-      height: 100px; /* matches header height */
+      height: 100px;
       width: auto;
     }
 
-    .header-text {
-      text-align: center;
-    }
+    .header-text { text-align: center; }
 
     header h1 {
       font-family: 'Press Start 2P', cursive;
@@ -91,13 +87,11 @@
       20%, 24%, 55% { opacity: 0.3; }
     }
 
-    /* Scrolling marquee effect */
     @keyframes scroll-text {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
 
-    /* Neon pulsing glow */
     @keyframes neonGlow {
       from { text-shadow: 0 0 6px #4aa3ff, 0 0 12px #ff00ff; }
       to { text-shadow: 0 0 12px #ffcc00, 0 0 24px #ff00ff; }
@@ -127,11 +121,21 @@
     .btn { display: inline-block; background: #0044cc; color: #fff; padding: 0.5rem 1rem; border-radius: 8px; transition: 0.3s; margin-top: 0.5rem; text-decoration: none; }
     .btn:hover { background: #ffcc00; color: #000; }
 
-    footer { background: rgba(0,0,0,0.85); color: #aaa; text-align: center; padding: 1.5rem; border-top: 2px solid #4aa3ff; font-size: 0.9rem; }
-
-    /* Dancing GIF */
     #fun-gif { text-align: center; margin: 3rem 0; }
     #fun-gif img { width: 150px; animation: bounce 2s infinite; }
+
+    .tlk-wrapper {
+      border: 4px solid #4aa3ff; 
+      border-radius: 15px;
+      box-shadow: 0 0 15px #4aa3ff, 0 0 30px #ff00ff, 0 0 60px #ffcc00;
+      transition: box-shadow 0.3s;
+    }
+
+    .tlk-wrapper:hover {
+      box-shadow: 0 0 25px #4aa3ff, 0 0 50px #ff00ff, 0 0 80px #ffcc00;
+    }
+
+    #live-chat h2 { color: #ff00ff; text-shadow: 0 0 6px #ff00ff, 0 0 12px #ffcc00, 0 0 20px #4aa3ff; }
 
     @keyframes bounce {
       0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
@@ -139,10 +143,10 @@
       60% { transform: translateY(-10px); }
     }
 
-    @media (max-width: 768px) { 
-      header h1 { font-size: 2rem; } 
-      h2 { font-size: 1.2rem; } 
-      #about .card { grid-template-columns: 1fr; } 
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      h2 { font-size: 1.2rem; }
+      #about .card { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -190,7 +194,7 @@
       <h2>Portfolio</h2>
       <div class="portfolio-grid">
 
-        <!-- Facebook Page Plugin -->
+        <!-- Facebook Dark Mode -->
         <div class="portfolio-item">
           <div class="fb-page"
                data-href="https://www.facebook.com/jolterz.eth/"
@@ -200,14 +204,14 @@
                data-small-header="false"
                data-adapt-container-width="true"
                data-hide-cover="false"
-               data-show-facepile="true">
+               data-show-facepile="true"
+               data-theme="dark">
             <blockquote cite="https://www.facebook.com/jolterz.eth/" class="fb-xfbml-parse-ignore">
               <a href="https://www.facebook.com/jolterz.eth/">Jolterz.eth</a>
             </blockquote>
           </div>
         </div>
 
-        <!-- Video Demo -->
         <div class="portfolio-item">
           <video controls>
             <source src="sample.mp4" type="video/mp4">
@@ -215,7 +219,6 @@
           <p>Gameplay Demo / Test Video</p>
         </div>
 
-        <!-- YouTube Showcase -->
         <div class="portfolio-item">
           <iframe width="100%" height="250" src="https://www.youtube.com/embed/9lqxTYOkjQI?start=35" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <p>YouTube Showcase Video</p>
@@ -236,16 +239,13 @@
     <!-- Live Chat -->
     <section id="live-chat">
       <h2>Live Chat</h2>
-      <div class="card">
-        <widgetbot
-          server="937837620715745400"
-          channel="937837620715745400"
-          width="100%"
-          height="500"
-        ></widgetbot>
-        <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
-        <p style="text-align:center; margin-top:1rem;">
-          Or open directly: <a href="https://discord.gg/jEnX8cb88K" target="_blank" class="btn">Join Channel</a>
+      <div class="card" style="text-align:center; position: relative; overflow: hidden;">
+        <div class="tlk-wrapper">
+          <iframe src="https://tlk.io/jolterz" style="width:100%; height:500px; border:none;"></iframe>
+        </div>
+        <p style="margin-top:1rem; color:#ffcc00;">
+          💬 Chat with the community right here, or open in a new tab:
+          <a href="https://tlk.io/jolterz" target="_blank" class="btn">Join Group Chat</a>
         </p>
       </div>
     </section>
@@ -268,12 +268,10 @@
 
   </div>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Jessieco Crema (Jolterz) | AAA Studio Portfolio Style</p>
   </footer>
 
-  <!-- Facebook SDK -->
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous"
     src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"
