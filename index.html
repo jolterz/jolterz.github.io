@@ -44,9 +44,24 @@
     /* Retro Gaming Header */
     header {
       background: rgba(0, 0, 0, 0.7);
-      padding: 6rem 2rem;
-      text-align: center;
+      padding: 3rem 2rem;
       border-bottom: 3px solid #4aa3ff;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .header-gif {
+      height: 100px; /* matches header height */
+      width: auto;
+    }
+
+    .header-text {
+      text-align: center;
     }
 
     header h1 {
@@ -59,15 +74,33 @@
     }
 
     header p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #ffffff;
       font-family: 'Press Start 2P', cursive;
-      opacity: 0.85;
+      opacity: 0.95;
+      margin-top: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: scroll-text 12s linear infinite, neonGlow 2s ease-in-out infinite alternate;
+      text-shadow: 0 0 6px #4aa3ff, 0 0 12px #ff00ff;
     }
 
     @keyframes flicker {
       0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
       20%, 24%, 55% { opacity: 0.3; }
+    }
+
+    /* Scrolling marquee effect */
+    @keyframes scroll-text {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Neon pulsing glow */
+    @keyframes neonGlow {
+      from { text-shadow: 0 0 6px #4aa3ff, 0 0 12px #ff00ff; }
+      to { text-shadow: 0 0 12px #ffcc00, 0 0 24px #ff00ff; }
     }
 
     nav { background: rgba(0,0,0,0.85); display: flex; justify-content: center; padding: 1rem 0; gap: 2rem; }
@@ -79,8 +112,7 @@
 
     #about .card { background: rgba(0,0,0,0.85); padding: 2rem; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.8); display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center; }
     #about img { width: 100%; border-radius: 15px; border: 2px solid #4aa3ff; }
-    #about .info p { margin-bottom: 1rem; font-size: 1rem; }
-    #about .info strong { color: #4aa3ff; }
+    #about .info p { margin-bottom: 1.2rem; font-size: 1.1rem; font-family: 'Press Start 2P', cursive; color: #ffffff; text-shadow: 0 0 6px #4aa3ff; }
 
     #portfolio .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .portfolio-item { background: rgba(0,0,0,0.85); border: 2px solid #4aa3ff; border-radius: 12px; overflow: hidden; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
@@ -89,8 +121,6 @@
     .portfolio-item p { padding: 1rem; color: #ffcc00; }
 
     #twitter .card, #live-chat .card { background: rgba(0,0,0,0.85); border-radius: 15px; padding: 1rem; box-shadow: 0 6px 20px rgba(0,0,0,0.8); margin-bottom: 2rem; }
-
-    #live-chat h2 { color: #ffcc00; text-shadow: 1px 1px 4px #000; }
 
     #contact .card { background: rgba(0,0,0,0.85); border-radius: 15px; padding: 2rem; box-shadow: 0 6px 20px rgba(0,0,0,0.8); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
     #contact p { margin-bottom: 1rem; }
@@ -109,15 +139,24 @@
       60% { transform: translateY(-10px); }
     }
 
-    @media (max-width: 768px) { header h1 { font-size: 2rem; } h2 { font-size: 1.2rem; } #about .card { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { 
+      header h1 { font-size: 2rem; } 
+      h2 { font-size: 1.2rem; } 
+      #about .card { grid-template-columns: 1fr; } 
+    }
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <h1>Jessieco Crema</h1>
-    <p>AKA Jolterz | Professional Web3 & Gaming Consultant</p>
+    <div class="header-container">
+      <img src="https://orig00.deviantart.net/a90e/f/2019/002/7/8/party_hard_jolteon_02_by_wiimonkey2-dcw0buv.gif" alt="Jolteon Party" class="header-gif">
+      <div class="header-text">
+        <h1>Jessieco Crema</h1>
+        <p>AKA: Jolterz | WEB 3 Gaming Consultant | KOL | Daddy | Degen</p>
+      </div>
+    </div>
   </header>
 
   <!-- Navigation -->
@@ -137,11 +176,11 @@
       <div class="card">
         <img src="https://pbs.twimg.com/profile_images/1906711758397755392/hXhA9bKg_400x400.jpg" alt="Jessieco Crema">
         <div class="info">
-          <p><strong>Role:</strong> Web 3 Content Creator & Game Consultant</p>
-          <p><strong>Guild Founder:</strong> Gaijin Guild Games</p>
-          <p><strong>Skills:</strong> Community Management, TCG, Web3 Marketing, Game Testing</p>
-          <p><strong>Current:</strong> Foreign Student in Japan</p>
-          <p><strong>Collaboration Manager</strong> for multiple projects</p>
+          <p>Role: Web 3 Content Creator & Game Consultant</p>
+          <p>Guild Founder: Gaijin Guild Games</p>
+          <p>Skills: Community Management, TCG, Web3 Marketing, Game Testing</p>
+          <p>Current: Foreign Student in Japan</p>
+          <p>Collaboration Manager for multiple projects</p>
         </div>
       </div>
     </section>
