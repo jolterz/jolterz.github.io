@@ -11,46 +11,94 @@
   <!-- Styles -->
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roboto', sans-serif; background: #000; color: #ffcc00; line-height: 1.6; }
 
+    /* Thunderstorm Background with Lightning Effect */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #000 url('https://i.ibb.co/4f6gV2h/thunder-bg.jpg') center/cover no-repeat fixed;
+      color: #ffcc00;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      opacity: 0;
+      z-index: -1;
+      animation: lightning 8s infinite;
+    }
+
+    @keyframes lightning {
+      0%, 97%, 100% { opacity: 0; }
+      5% { opacity: 1; }
+      6% { opacity: 0; }
+      20% { opacity: 1; }
+      21% { opacity: 0; }
+    }
+
+    /* Retro Gaming Header */
     header {
-      background: url('https://images.pexels.com/photos/772258/pexels-photo-772258.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover no-repeat;
+      background: rgba(0, 0, 0, 0.7);
       padding: 6rem 2rem;
       text-align: center;
-      color: #ffcc00;
-      text-shadow: 2px 2px 8px #000;
+      border-bottom: 3px solid #4aa3ff;
     }
-    header h1 { font-family: 'Press Start 2P', cursive; font-size: 3rem; margin-bottom: 0.5rem; }
-    header p { font-size: 1.3rem; color: #fff; }
 
-    nav { background: #111; display: flex; justify-content: center; padding: 1rem 0; gap: 2rem; }
-    nav a { color: #ffcc00; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+    header h1 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #ffcc00;
+      text-shadow: 0 0 8px #ffcc00, 0 0 16px #ff6600, 0 0 32px #ff0000;
+      animation: flicker 2.5s infinite;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #ffffff;
+      font-family: 'Press Start 2P', cursive;
+      opacity: 0.85;
+    }
+
+    /* Retro flicker animation */
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+      20%, 24%, 55% { opacity: 0.3; }
+    }
+
+    nav { background: rgba(0,0,0,0.85); display: flex; justify-content: center; padding: 1rem 0; gap: 2rem; }
+    nav a { color: #ffcc00; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; }
     nav a:hover { color: #4aa3ff; }
 
     .container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
     h2 { font-family: 'Press Start 2P', cursive; font-size: 1.5rem; color: #4aa3ff; border-left: 6px solid #ffcc00; padding-left: 0.5rem; margin-bottom: 1rem; }
 
-    #about .card { background: #111; padding: 2rem; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.8); display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center; }
+    #about .card { background: rgba(0,0,0,0.85); padding: 2rem; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.8); display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center; }
     #about img { width: 100%; border-radius: 15px; border: 2px solid #4aa3ff; }
     #about .info p { margin-bottom: 1rem; font-size: 1rem; }
     #about .info strong { color: #4aa3ff; }
 
     #portfolio .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .portfolio-item { background: #111; border: 2px solid #4aa3ff; border-radius: 12px; overflow: hidden; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+    .portfolio-item { background: rgba(0,0,0,0.85); border: 2px solid #4aa3ff; border-radius: 12px; overflow: hidden; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
     .portfolio-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.9); }
-    .portfolio-item img, .portfolio-item video, .portfolio-item iframe { width: 100%; display: block; border-bottom: 2px solid #ffcc00; }
+    .portfolio-item iframe, .portfolio-item video, .portfolio-item img { width: 100%; border-bottom: 2px solid #ffcc00; display: block; }
     .portfolio-item p { padding: 1rem; color: #ffcc00; }
 
-    #twitter .card, #live-chat .card { background: #111; border-radius: 15px; padding: 1rem; box-shadow: 0 6px 20px rgba(0,0,0,0.8); margin-bottom: 2rem; }
+    #twitter .card, #live-chat .card { background: rgba(0,0,0,0.85); border-radius: 15px; padding: 1rem; box-shadow: 0 6px 20px rgba(0,0,0,0.8); margin-bottom: 2rem; }
 
     #live-chat h2 { color: #ffcc00; text-shadow: 1px 1px 4px #000; }
 
-    #contact .card { background: #111; border-radius: 15px; padding: 2rem; box-shadow: 0 6px 20px rgba(0,0,0,0.8); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    #contact .card { background: rgba(0,0,0,0.85); border-radius: 15px; padding: 2rem; box-shadow: 0 6px 20px rgba(0,0,0,0.8); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
     #contact p { margin-bottom: 1rem; }
     .btn { display: inline-block; background: #0044cc; color: #fff; padding: 0.5rem 1rem; border-radius: 8px; transition: 0.3s; margin-top: 0.5rem; text-decoration: none; }
     .btn:hover { background: #ffcc00; color: #000; }
 
-    footer { background: #111; color: #aaa; text-align: center; padding: 1.5rem; border-top: 2px solid #4aa3ff; font-size: 0.9rem; }
+    footer { background: rgba(0,0,0,0.85); color: #aaa; text-align: center; padding: 1.5rem; border-top: 2px solid #4aa3ff; font-size: 0.9rem; }
 
     /* Dancing GIF */
     #fun-gif { text-align: center; margin: 3rem 0; }
@@ -62,7 +110,7 @@
       60% { transform: translateY(-10px); }
     }
 
-    @media (max-width: 768px) { header h1 { font-size: 2.2rem; } h2 { font-size: 1.2rem; } #about .card { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { header h1 { font-size: 2rem; } h2 { font-size: 1.2rem; } #about .card { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -103,26 +151,38 @@
     <section id="portfolio">
       <h2>Portfolio</h2>
       <div class="portfolio-grid">
+
+        <!-- Facebook Page Plugin -->
         <div class="portfolio-item">
-          <a href="https://www.facebook.com/jolterz.eth/" target="_blank">
-            <img src="https://images.pexels.com/photos/267569/pexels-photo-267569.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Facebook Page Preview">
-            <p>Facebook Page Preview</p>
-          </a>
+          <div class="fb-page"
+               data-href="https://www.facebook.com/jolterz.eth/"
+               data-tabs="timeline"
+               data-width="340"
+               data-height="500"
+               data-small-header="false"
+               data-adapt-container-width="true"
+               data-hide-cover="false"
+               data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/jolterz.eth/" class="fb-xfbml-parse-ignore">
+              <a href="https://www.facebook.com/jolterz.eth/">Jolterz.eth</a>
+            </blockquote>
+          </div>
         </div>
+
+        <!-- Video Demo -->
         <div class="portfolio-item">
           <video controls>
             <source src="sample.mp4" type="video/mp4">
           </video>
           <p>Gameplay Demo / Test Video</p>
         </div>
+
+        <!-- YouTube Showcase -->
         <div class="portfolio-item">
           <iframe width="100%" height="250" src="https://www.youtube.com/embed/9lqxTYOkjQI?start=35" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <p>YouTube Showcase Video</p>
         </div>
-        <div class="portfolio-item">
-          <img src="https://images.pexels.com/photos/270965/pexels-photo-270965.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Event Collaboration">
-          <p>Event Collaboration Example</p>
-        </div>
+
       </div>
     </section>
 
@@ -139,7 +199,16 @@
     <section id="live-chat">
       <h2>Live Chat</h2>
       <div class="card">
-        <iframe src="https://discord.com/widget?id=937837620715745400&theme=dark" width="100%" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        <widgetbot
+          server="937837620715745400"
+          channel="937837620715745400"
+          width="100%"
+          height="500"
+        ></widgetbot>
+        <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+        <p style="text-align:center; margin-top:1rem;">
+          Or open directly: <a href="https://discord.gg/jEnX8cb88K" target="_blank" class="btn">Join Channel</a>
+        </p>
       </div>
     </section>
 
@@ -165,6 +234,13 @@
   <footer>
     <p>© 2025 Jessieco Crema (Jolterz) | AAA Studio Portfolio Style</p>
   </footer>
+
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"
+    nonce="FbPlugin">
+  </script>
 
 </body>
 </html>
